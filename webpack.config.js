@@ -1,8 +1,10 @@
 const path = require('path');
 const webpack = require('webpack');
-const htmlWebPackPlugin = require('html-webpack-plugin')
+const htmlWebPackPlugin = require('html-webpack-plugin');
 
 module.exports = {
+
+  mode:'production'.
 
   entry: './src/client/index.js',
   module: {
@@ -11,6 +13,10 @@ module.exports = {
         test:'/\.js$/',
         exclude:/node_modules/,
         loader:"babel-loader"
+      },
+      {
+        test: /\.scss$/,
+        use: [ 'style-loader', 'css-loader', 'sass-loader' ]
       }
 
     ]
